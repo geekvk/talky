@@ -1,0 +1,56 @@
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from "@react-navigation/stack";
+import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen';
+import HomeScreen from './screens/HomeScreen';
+import CameraScreen from './screens/CameraScreen';
+import AddChatScreen from "./screens/AddChatScreen";
+import SettingScreen from "./screens/SettingsScreen";
+import ChatScreen from "./screens/ChatScreen";
+
+const Stack = createStackNavigator();
+const globalScreenOptions = {
+  headerStyle: { backgroundColor: "#E01E5A"},
+  headerTitleStyle: {color: "white"},
+  headerTintColor: "white",
+  headerPosition: "sticky",
+
+}
+export default function App() {
+  return (
+    <NavigationContainer >
+      <Stack.Navigator  
+          screenOptions={globalScreenOptions}>
+        <Stack.Screen 
+            name="Login" component={LoginScreen} />
+        <Stack.Screen 
+            name="Register" component={RegisterScreen} />
+        <Stack.Screen 
+            name="Home" component={HomeScreen} />
+        <Stack.Screen 
+            name="Camera" component={CameraScreen} />
+        <Stack.Screen 
+          name="AddChat" component={AddChatScreen} />
+        <Stack.Screen 
+          name="Settings" component={SettingScreen} />
+        <Stack.Screen 
+          name="Chat" component={ChatScreen} />
+      </Stack.Navigator>
+      
+    </NavigationContainer>
+    
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
